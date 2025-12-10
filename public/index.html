@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sekho Tech – Digital Experiences That Convert</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Web & App development, UI/UX, Branding – delivered fast.">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4361ee">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container flex-between">
+    <a class="logo" href="#">Sekho<span class="logo-dot"> </span>Tech</a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1 class="hero-title">Crafting Digital Experiences That Drive Results</h1>
+    <p class="hero-subtitle">Web & App developer + UI/UX designer helping businesses stand out and scale.</p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>50+</strong><span>Projects</span></div>
+      <div><strong>100 %</strong><span>Happy Clients</span></div>
+      <div><strong>3 +</strong><span>Years</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">Expert Services</h2>
+    <p class="section-subtitle">Everything you need under one roof—built with modern tech.</p>
+    <div class="grid" id="services-list"></div>
+    <div class="text-center mt-4">
+      <button id="requestQuote" class="btn btn-primary btn-icon"><i class="fas fa-file-alt"></i> Request Quote</button>
+      <p class="text-sm">Login required for detailed quotes</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="section bg-alt">
+  <div class="container">
+    <h2 class="section-title">Featured Work</h2>
+    <div class="grid" id="portfolio-list"></div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div>
+      <h2 class="section-title">About Me</h2>
+      <p>Hi, I'm <strong>Sekho</strong> – a full-stack developer & product designer. I turn ideas into pixel-perfect, high-performing web / mobile apps that users love and businesses profit from.</p>
+      <div class="skills">
+        <span>React / Next</span><span>Laravel</span><span>Tailwind</span><span>Flutter</span>
+        <span>Figma</span><span>Firebase</span>
+      </div>
+    </div>
+    <div class="about-img">
+      <img src="/picture/OIP.webp" alt="At work">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section bg-alt">
+  <div class="container">
+    <h2 class="section-title">Let's Work Together</h2>
+    <div class="contact-wrapper">
+      <form id="contactForm" class="contact-form">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <input type="email" name="email" placeholder="Email (optional)">
+        <textarea name="message" placeholder="Tell me about your project…" required></textarea>
+        <button class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+      <div class="contact-info">
+        <h3>Contact Info</h3>
+        <p>
+  <i class="fas fa-envelope" style="color:#ff3b30; margin-right:6px;"></i>
+  sekhousou@gmail.com
+</p>
+
+<p>
+  <i class="fas fa-phone" style="color:#007aff; margin-right:6px;"></i>
+  +91 9862494804
+</p>
+
+       <p>
+  <i class="fab fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
+  <a href="https://wa.me/919862494804" target="_blank" style="color: inherit; margin-left:4px; text-decoration:none;">
+    Available for quick queries: 
+  </a>
+</p>
+      <p>
+  <i class="fas fa-map-marker-alt" style="color:#ff9500; margin-right:6px;"></i>
+  Chiephobozou, Kohima, Nagaland
+</p>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="logo" href="#">Sekho<span class="logo-dot"> </span>Tech</a>
+      <p>Creating digital experiences that make an impact.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <div class="social">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> <p> Sekho Üsou Deals | All Rights Reserved</p>
+    <p>𝒟𝑒𝓈𝒾𝑔𝓃 𝒶𝓃𝒹 𝒟𝑒𝓋𝑒𝓁𝑜𝓅𝑒𝒹 𝐵𝓎 𝒮𝑒𝓀𝒽𝑜 Ü𝓈𝑜𝓊</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/1234567890" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Auth Model -->
+<dialog id="authModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    <h3 id="modalTitle">Welcome Back</h3>
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Login</button>
+      <button class="tab" data-tab="register">Register</button>
+    </div>
+
+    <!-- login -->
+    <form id="loginForm" class="auth-form">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <div class="flex-between">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#" id="forgotLink">Forgot password?</a>
+      </div>
+      <button class="btn btn-primary btn-block">Login</button>
+    </form>
+
+    <!-- register -->
+    <form id="registerForm" class="auth-form hidden">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password (≥6 chars)" required>
+      <input type="password" name="confirm" placeholder="Confirm Password" required>
+      <button class="btn btn-primary btn-block">Create Account</button>
+    </form>
+  </div>
+</dialog>
+<script src="js/app.js"></script>
+</body>
+</html>
