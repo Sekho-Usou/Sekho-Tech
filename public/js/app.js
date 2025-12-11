@@ -8,12 +8,27 @@ const menuBtn=document.querySelector('.mobile-menu-btn');const navList=document.
 menuBtn.addEventListener('click',()=>navList.classList.toggle('open'));
 
 // ---------- dynamic content ----------
-const services=["Website Development","Android Apps","UI/UX Design","Brand Identity","WhatsApp Catalog","Social Media Kit","Digital Products","Phone Repair (Add-on)"];
-const portfolio=["Church App","Restaurant Website","Clothing Brand","Gospel Lyrics App","Travel Agency","Phone-Repair Posters"];
-const sList=document.getElementById('services-list');const pList=document.getElementById('portfolio-list');
-services.forEach(s=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h4>${s}</h4><p>Reliable, modern and scalable.</p>`;sList.appendChild(d)});
-portfolio.forEach(p=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h4>${p}</h4><p>Live project sample.</p>`;pList.appendChild(d)});
+document.addEventListener('DOMContentLoaded', () => {
+  const services = ["Website Development","Android Apps","UI/UX Design","Brand Identity","WhatsApp Catalog","Social Media Kit","Digital Products","Phone Repair (Add-on)"];
+  const portfolio = ["Church App","Restaurant Website","Clothing Brand","Gospel Lyrics App","Travel Agency","Phone-Repair Posters"];
 
+  const sList = document.getElementById('services-list');
+  const pList = document.getElementById('portfolio-list');
+
+  services.forEach(s => {
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = `<h4>${s}</h4><p>Reliable, modern and scalable.</p>`;
+    sList.appendChild(d);
+  });
+
+  portfolio.forEach(p => {
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = `<h4>${p}</h4><p>Live project sample.</p>`;
+    pList.appendChild(d);
+  });
+});
 // ---------- auth ----------
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('authModal').close();   // be sure it’s shut
@@ -23,15 +38,37 @@ async function handle(form,endpoint){form.addEventListener('submit',async(e)=>{e
 handle(document.getElementById('loginForm'),'login');
 handle(document.getElementById('registerForm'),'register');
 
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 50) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // Active link based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const id = section.getAttribute('id');
+      const link = document.querySelector(`.nav-link[href="#${id}"]`);
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        link?.classList.add('active');
+      } else {
+        link?.classList.remove('active');
+      }
+    });
+  });
+
 // ---------- forgot ----------
 document.getElementById('forgotLink').addEventListener('click',async()=>{const e=prompt('Enter your email');if(!e)return;const r=await fetch(api('reset_password'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e})});alert(await r.text())});
 
 // ---------- quote (protected) ----------
 async function requestQuote(){const r=await fetch('server/protected_action.php',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+localStorage.getItem('token')},body:JSON.stringify({action:'request_quote',service:'General'})});alert(await r.text())}
-
-// ---------- contact ----------
-document.getElementById('contactForm').addEventListener('submit',async(e)=>{e.preventDefault();const fd=new FormData(e.target);const r=await fetch('server/submit.php',{method:'POST',body:fd});if(r.ok){e.target.reset();alert('Message sent!')}else alert('Failed')});
-
 // ---------- year ----------
 document.getElementById('year').textContent=new Date().getFullYear();
 
@@ -70,3 +107,19 @@ document.getElementById('requestQuote').addEventListener('click', () => {
   if (!guardAuth()) return;          // ← modal opens if guest
   requestQuote();                    // authenticated users only
 });
+
+card.href = `detail.html?type=portfolio&item=${encodeURIComponent(title)}#back=${type}`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

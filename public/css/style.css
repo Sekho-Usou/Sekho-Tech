@@ -2,7 +2,7 @@
   --primary: #4361ee;
   --primary-dark: #3a56d4;
   --dark: #f5f7fa;
-  --light: #0f0f0f;            /* Dark background */
+  --light: #0f0f0f;           
   --gray: #9aa0a6;
   --radius: 8px;
   --shadow: 0 4px 12px rgba(0,0,0,.5);
@@ -38,7 +38,7 @@ body {
 }
 
 .bg-alt {
-  background: #111;           /* Dark card background */
+  background: #111;          
 }
 
 /* BUTTONS */
@@ -96,32 +96,95 @@ body {
 }
 
 /* HEADER */
-header {
-  position: sticky;
+.header {
+  position: fixed;
   top: 0;
-  z-index: 200;
-  background: #111;
-  color: #fff;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.4s;
+  padding: 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.container.flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem clamp(1rem, 3vw, 2rem);
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 40px;
 }
 
-header h1 {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  letter-spacing: 0.5px;
-  color: #ffffff;
+/* LOGO */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  gap: 4px;
 }
 
-nav {
+.logo-dot {
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+/* NAVIGATION */
+.nav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::before {
+  width: 100%;
 }
 
 nav a {
@@ -131,13 +194,6 @@ nav a {
   transition: color 0.3s, transform 0.2s;
 }
 
-/* Hover effect for links */
-nav a:hover {
-  color: #df0808;
-  transform: translateY(-2px);
-}
-
-/* Special styling for the Share button */
 nav a.share-btn {
   background: transparent;
   color: #fff;
@@ -156,72 +212,24 @@ nav a.share-btn:active {
   transform: scale(1.05);
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.8rem;
-  }
-  nav {
-    justify-content: center;
-  }
-}
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-}
-
-.logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--dark);
-  text-decoration: none;
-}
-
-.logo-dot { color: var(--primary); }
-
-/* NAV */
-.nav-list {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-
-.nav-link {
-  color: var(--dark);
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: var(--transition);
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Remove theme toggle completely */
-.theme-toggle { display: none !important; }
-
+/* No menu button at all */
 .mobile-menu-btn {
-  display: none;
-  font-size: 1.4rem;
-  cursor: pointer;
+  display: none !important;
 }
 
-/* HERO - Professional Redesign */
+@media (max-width: 640px) {
+  .container.flex-between {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 20px;
+  }
+
+  .nav-list {
+    gap: 20px;
+  }
+}
+
+/* HERO */
 .hero {
   position: relative;
   padding: 180px 0 120px;
