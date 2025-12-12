@@ -1,4 +1,4 @@
-/* ================= LOAD HEADER  (back-button now inside header) ================= */
+/* ================= DETAILS ================= */
 function loadHeader() {
   const headerContainer = document.getElementById('header-container');
   if (!headerContainer) return;
@@ -12,7 +12,7 @@ function loadHeader() {
         </a>
 
         <!-- 2. logo – centre brand -->
-        <a class="logo" href="index.html">Sekho<span class="logo-dot"></span>Tech</a>
+        <a class="logo" href="index.html">Sekho Tech</a>
 
         <!-- 3. navigation – right side -->
         <nav class="nav">
