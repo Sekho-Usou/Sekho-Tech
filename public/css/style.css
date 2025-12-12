@@ -41,6 +41,308 @@ body {
   background: #111;          
 }
 
+/* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  transition: .3s;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   HEADER & HAMBURGER 
+   ============================================================ */
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+/* Logo on left */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hamburger Button - HIDDEN on desktop, SHOWN on mobile */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  right: 20px; /* Position on the right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation - Desktop version (always visible on desktop) */
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.share-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.share-btn:hover {
+  background: #535353;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   MOBILE NAVIGATION - HALF SCREEN SLIDE PANEL
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Navigation - Half screen slide panel */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -50%; /* Start off-screen (half width) */
+    width: 50%; /* Half screen width */
+    height: 100vh;
+    background: rgba(26, 26, 46, 0.98); /* Dark but visible background */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start from top */
+    align-items: flex-start;
+    padding: 80px 30px 30px; /* Top padding for header space */
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Show menu when active */
+  .nav.active {
+    right: 0;
+  }
+  
+  /* Mobile nav list */
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start; /* Left align text */
+    justify-content: flex-start;
+    gap: 25px;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 12px 0;
+    display: block;
+    color: #ffffff; /* White text for visibility */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+  
+  .nav-link::before {
+    display: none; /* Hide desktop underline effect */
+  }
+  
+  .nav-link:hover {
+    color: #4361ee; /* Primary color on hover */
+  }
+  
+  /* Share button styling */
+  .share-btn {
+    font-size: 1rem;
+    padding: 12px 20px;
+    margin-top: 30px;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    border: 2px solid #4361ee;
+    background: rgba(67, 97, 238, 0.1);
+    color: #ffffff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .share-btn:hover {
+    background: #4361ee;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Overlay when menu is open */
+  .nav::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .nav.active::before {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.no-scroll {
+    overflow: hidden;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE - Adjust panel width
+   ============================================================ */
+@media (max-width: 480px) {
+  .nav {
+    width: 70%; /* Wider panel for smaller screens */
+    right: -70%;
+  }
+  
+  .nav.active {
+    right: 0;
+  }
+  
+  .nav-list {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+/* ============================================================
+   TABLET - Adjust panel width
+   ============================================================ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav {
+    width: 40%; /* Medium width for tablets */
+    right: -40%;
+  }
+  
+  .nav.active {
+    right: 0;
+  }
+}
+
 /* BUTTONS */
 .btn {
   display: inline-flex;
@@ -210,11 +512,6 @@ nav a.share-btn:active {
   color: #fff;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
   transform: scale(1.05);
-}
-
-/* No menu button at all */
-.mobile-menu-btn {
-  display: none !important;
 }
 
 @media (max-width: 640px) {
@@ -500,10 +797,10 @@ nav a.share-btn:active {
 
 /* Tablet view */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .hero-stats {
-    gap: 40px;
+  .nav-list {
+    gap: 20px;
   }
-  
+
   .hero-stats strong {
     font-size: 2.2rem;
   }
@@ -741,26 +1038,6 @@ nav a.share-btn:active {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .nav-list {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    bottom: 0;
-    background: #000;
-    width: 70%;
-    flex-direction: column;
-    padding: 30px;
-    transition: .3s;
-  }
-  
-  .nav-list.open {
-    right: 0;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
   .about-grid,
   .contact-wrapper {
     grid-template-columns: 1fr;

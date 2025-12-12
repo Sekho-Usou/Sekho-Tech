@@ -5,6 +5,7 @@
   <title>Sekho Tech – Digital Experiences That Convert</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Web & App development, UI/UX, Branding – delivered fast.">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="icon" href="img/favicon.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4361ee">
@@ -15,19 +16,27 @@
 </head>
 <body>
 <header class="header">
-  <div class="container flex-between">
+  <div class="container header-container">
     <a class="logo" href="#">Sekho<span class="logo-dot"></span>Tech</a>
-
+    
+    <!-- Hamburger Button - On the right side -->
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Navigation Menu -->
     <nav class="nav">
       <ul class="nav-list">
         <li><a class="nav-link" href="#services">Services</a></li>
         <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
         <li><a class="nav-link" href="#about">About</a></li>
         <li><a class="nav-link" href="#contact">Contact</a></li>
-        <a href="https://wa.me/?text=Check%20out%20Sekho%20Tech!%0Ahttps://sekhodeals.netlify.app"
-        target="_blank" rel="noopener" class="share-btn">
-        Share my Website
-      </a>
+        <li><a href="https://wa.me/?text=Check%20out%20Sekho%20Tech!%0Ahttps://sekhodeals.netlify.app"
+              target="_blank" rel="noopener" class="share-btn">
+              Share my Website
+            </a></li>
       </ul>
     </nav>
   </div>
@@ -107,7 +116,7 @@
 
        <p>
   <i class="fab fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
-  <a href="https://wa.me/919862494804" target="_blank" style="color: inherit; margin-left:4px; text-decoration:none;">
+  <a href="https://wa.me/919862494804" rel="noopener noreferrer target="_blank" style="color: inherit; margin-left:4px; text-decoration:none;">
     Available for quick queries: 
   </a>
 </p>
@@ -153,7 +162,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/+91 9862494804" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/+91 9862494804" rel="noopener noreferrer target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
 <!-- Auth Model -->
 <dialog id="authModal" class="modal">
@@ -193,9 +202,9 @@
   "Website Development","Android Apps","UI/UX Design","Brand Identity",
   "WhatsApp Catalog","Social Media Kit","Digital Products","Phone Repair (Add-on)"
 ].forEach(title => {
-  const card = document.createElement('a');         
+  const card = document.createElement('a');          
   card.className = 'card';
-  card.href = `detail.html?type=service&item=${encodeURIComponent(title)}`;
+  card.href = `detail.html?type=services&item=${encodeURIComponent(title)}`;
   card.innerHTML = `<h4>${title}</h4><p>Reliable, modern and scalable.</p>`;
   document.getElementById('services-list').appendChild(card);
 });
